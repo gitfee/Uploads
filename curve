@@ -1,0 +1,32 @@
+PointPairList list = new PointPairList();
+            myPane = zedGraphControl1.GraphPane;
+            myPane.Title.Text = "二次曲线测试";
+            myPane.Title.FontSpec.Size = 10;
+            myPane.XAxis.Scale.BaseTic = 50;
+            myPane.YAxis.Title.Text = "工程值";
+            myPane.YAxis.Title.FontSpec.Size = 8;
+            myPane.XAxis.Title.Text = "时间";
+            myPane.XAxis.Title.FontSpec.Size = 8;
+            myPane.XAxis.Type = AxisType.DateAsOrdinal;
+            myPane.XAxis.CrossAuto = true;
+            //myPane.XAxis.Scale.Max = 50;
+            myPane.XAxis.Scale.Max = xMax;
+            myPane.XAxis.Scale.FontSpec.Size = 5;
+            myPane.YAxis.Scale.Max = yMax;
+            myPane.YAxis.Scale.Min = yMin;
+            myPane.YAxis.Scale.FontSpec.Size = 5;
+
+            myPane.Legend.Border.Color = Color.DarkGray; //去掉图例边框
+            myPane.Legend.FontSpec.Size = 8; //图例字体大小
+
+            myPane.Legend.Position = ZedGraph.LegendPos.InsideTopLeft;
+            myPane.Legend.Location = new ZedGraph.Location(50, 50, CoordType.AxisXYScale);
+            
+            //myPane.XAxis.Scale.Min = 500;
+            myPane.XAxis.Scale.Format = "hh:mm:ss";
+            myCurve = myPane.AddCurve("参数1", list, Color.Red, SymbolType.None);
+            
+            myCurve.Line.IsAntiAlias = true;
+            myCurve.Line.Width = 1.5F;
+            myCurve.Symbol.Fill = new Fill(Color.White);
+            myCurve.Symbol.Size = 5;
