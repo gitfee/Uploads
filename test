@@ -1,0 +1,19 @@
+public static string Replace(string oldStr)
+        {
+            if (string.IsNullOrEmpty(oldStr))
+            {
+                return "";
+            }
+            string str2 = Regex.Replace(oldStr, @"[\[\+\\\|\(\)\^\*\""\]'%~#-&]", delegate(Match match)
+            {
+                if (match.Value == "'")
+                {
+                    return "''";
+                }
+                else
+                {
+                    return "[" + match.Value + "]";
+                }
+            });
+            return str2;
+        }
